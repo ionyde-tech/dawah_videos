@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First GitHub Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="menu">
+        <a href="index.html"><p>Prophets</p></a>
+        <a href="lastdays.html"><p>Last Days</p></a>
+        <a href="angels.html"><p>Angels</p></a>
+        <a href="manners.html"><p>Manners</p></a>
+        <a href="charity.html"><p>Chairty</p></a>
+        <a href="bestwomen.html"><p>Best Women</p></a>
+        <a href="ramadhan.html"><p>Ramadhan</p></a>
+        <a href="makkah.html"><p>Makkah</p></a>
+      </div>
+  
+
+    <div class="container">
+      <div class="topic">
+        <h1>Aisha</h1>
+
+        
+      <div class="element">
+        <p>https://www.youtube.com/watch?v=wqDQv5cFDDk</p>
+        <p>TOP 6 GREATEST WOMEN IN ISLAM</p>
+        <p>08:30</p>
+        <p>One Islam Production</p>
+      </div>
+
+      </div>
+
+        <div class="topic">
+            <h1>Aisha</h1>
+
+            
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=Uz8pbOOew0A</p>
+            <p>The Inspiring Story of Aisha (RA) | Mufti Menk</p>
+            <p>21;41</p>
+            <p>Prevail Islam</p>
+          </div>
+
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=1CLaRa0QyiA</p>
+            <p>Aisha Bint Abi Bakr [RA]</p>
+            <p>25:30</p>
+            <p>Islamic Guidance</p>
+          </div>
+
+          </div>
+
+          <div class="topic">
+            <h1>Khadeejah</h1>
+
+            
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=D2jVrAlv1x8</p>
+            <p>Khadija Bint Al-Khuwaylid [RA]</p>
+            <p>28:40</p>
+            <p>Islamic Guidance</p>
+          </div>
+
+          </div>
+
+          <div class="topic">
+            <h1>Asiyah</h1>
+
+            
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=F9DFNXT7iBg</p>
+            <p>Asiyah Bint Al-Muzahim [RA]</p>
+            <p>16:30</p>
+            <p>Islamic Guidance</p>
+          </div>
+
+          </div>
+
+          <div class="topic">
+            <h1>Hairdresser</h1>
+
+            
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=1u5d5cpqJ1E</p>
+            <p>The Hairdresser of Pharoah's Daughter - Fahad Spoken Word</p>
+            <p>6:06</p>
+            <p>Sirat al mustaqeem</p>
+          </div>
+
+          </div>
+
+          <div class="topic">
+            <h1>Maryam (Mary)</h1>
+
+            <div class="element">
+              <p>https://www.youtube.com/watch?v=20EbcIR6fr8</p>
+              <p>Maryam [AS]</p>
+              <p>13:00</p>
+              <p>Islamic Guidance</p>
+            </div>
+            
+          <div class="element">
+            <p>https://www.youtube.com/watch?v=Z3FzVphy3a0</p>
+            <p>The Story Of Maryam (AS) & The Miraculous Birth Of Isa (AS) | EP 55 | Stories Of The Prophet Series</p>
+            <p>39:10</p>
+            <p>One Islam Productions</p>
+          </div>
+
+          </div>
+
+         
+
+          </div>
+
+
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function parseDuration(durationText) {
+                const regex = /^(\d{1,2}):(\d{2})(?::(\d{2}))?$/; // Matches MM:SS or HH:MM:SS
+                const match = durationText.match(regex);
+        
+                if (!match) {
+                    console.error(`Invalid time format: ${durationText}`);
+                    return null; // Invalid format
+                }
+        
+                let hours = match[3] ? parseInt(match[1]) : 0; // If there are 3 parts, first is hours
+                let minutes = match[3] ? parseInt(match[2]) : parseInt(match[1]);
+                let seconds = match[3] ? parseInt(match[3]) : parseInt(match[2]);
+        
+                return hours * 3600 + minutes * 60 + seconds; // Convert to total seconds
+            }
+        
+            function sortVideosByDuration(topicElement) {
+                let videos = [...topicElement.querySelectorAll(".element")];
+        
+                let videoData = videos.map(video => {
+                    let url = video.children[0].innerText.trim();
+                    let title = video.children[1].innerText.trim();
+                    let durationText = video.children[2].innerText.trim();
+                    let channel = video.children[3].innerText.trim();
+        
+                    let durationInSeconds = parseDuration(durationText);
+        
+                    if (durationInSeconds === null) return null; // Skip invalid entries
+        
+                    return { element: video, duration: durationInSeconds };
+                }).filter(video => video !== null); // Remove invalid videos
+        
+                // Sort videos by duration
+                videoData.sort((a, b) => a.duration - b.duration);
+        
+                // Append sorted elements back to the topic
+                videoData.forEach(video => topicElement.appendChild(video.element));
+            }
+        
+            function processTopics() {
+                let topics = document.querySelectorAll(".topic");
+                topics.forEach(topic => sortVideosByDuration(topic));
+            }
+        
+            processTopics(); // Run sorting on page load
+        });
+        </script>
+        
+</body>
+</html>

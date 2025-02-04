@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First GitHub Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="menu">
+        <a href="index.html"><p>Prophets</p></a>
+        <a href="lastdays.html"><p>Last Days</p></a>
+        <a href="angels.html"><p>Angels</p></a>
+        <a href="manners.html"><p>Manners</p></a>
+        <a href="charity.html"><p>Chairty</p></a>
+        <a href="bestwomen.html"><p>Best Women</p></a>
+        <a href="ramadhan.html"><p>Ramadhan</p></a>
+        <a href="makkah.html"><p>Makkah</p></a>
+      </div>
+  
+
+    <div class="container">
+        <div class="topic">
+            <h1>Charity</h1>
+
+            
+<div class="element">
+  <p>https://www.youtube.com/watch?v=AKYDnVE7AYo</p>
+  <p>This Happens When You Give Charity</p>
+  <p>6:01</p>
+  <p>One Islamic Productions</p>
+</div>
+
+
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function parseDuration(durationText) {
+                const regex = /^(\d{1,2}):(\d{2})(?::(\d{2}))?$/; // Matches MM:SS or HH:MM:SS
+                const match = durationText.match(regex);
+        
+                if (!match) {
+                    console.error(`Invalid time format: ${durationText}`);
+                    return null; // Invalid format
+                }
+        
+                let hours = match[3] ? parseInt(match[1]) : 0; // If there are 3 parts, first is hours
+                let minutes = match[3] ? parseInt(match[2]) : parseInt(match[1]);
+                let seconds = match[3] ? parseInt(match[3]) : parseInt(match[2]);
+        
+                return hours * 3600 + minutes * 60 + seconds; // Convert to total seconds
+            }
+        
+            function sortVideosByDuration(topicElement) {
+                let videos = [...topicElement.querySelectorAll(".element")];
+        
+                let videoData = videos.map(video => {
+                    let url = video.children[0].innerText.trim();
+                    let title = video.children[1].innerText.trim();
+                    let durationText = video.children[2].innerText.trim();
+                    let channel = video.children[3].innerText.trim();
+        
+                    let durationInSeconds = parseDuration(durationText);
+        
+                    if (durationInSeconds === null) return null; // Skip invalid entries
+        
+                    return { element: video, duration: durationInSeconds };
+                }).filter(video => video !== null); // Remove invalid videos
+        
+                // Sort videos by duration
+                videoData.sort((a, b) => a.duration - b.duration);
+        
+                // Append sorted elements back to the topic
+                videoData.forEach(video => topicElement.appendChild(video.element));
+            }
+        
+            function processTopics() {
+                let topics = document.querySelectorAll(".topic");
+                topics.forEach(topic => sortVideosByDuration(topic));
+            }
+        
+            processTopics(); // Run sorting on page load
+        });
+        </script>
+        
+</body>
+</html>

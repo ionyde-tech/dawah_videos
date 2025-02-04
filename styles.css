@@ -1,0 +1,88 @@
+*:not(html, script, style, head) {
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    /* font-weight: 100; */
+    border: none;
+    /* border: 1px solid grey; *//* color: white; */
+    font-family: "Lato", serif;
+    /* font-weight: 100; */
+    font-style: normal;
+    font-family: "Lato", serif;
+    border: none;
+    border: 1px solid purple;
+}
+
+
+
+div#menu {
+    background: #000b63bf;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 22px;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+}
+
+div#menu a {
+    font-size: 1.5rem;
+    color: white;
+    display: inline-block;
+    margin-left: 15px;
+    /* position: fixed; */
+}
+
+.container {
+    width: 100%;
+}
+
+.topic {
+    width: 100%;
+    margin: 12px 0px;
+    background: white;
+    padding: 12px 0px;
+}
+
+.element {
+    min-height: max-content;
+    margin: 22px 0px;
+    height: 160px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.element p:first-child {
+    color: red;
+    font-size: 1.3rem;
+    padding: 8px 12px;
+}
+
+
+
+
+
+.element {}
+
+p {
+    font-size: 22px;
+}
+
+body {
+    background-color: #054299;
+    margin-top: 102px;
+}
+
+h1 {
+    font-family: sans-serif;
+}
