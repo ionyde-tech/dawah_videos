@@ -1,0 +1,92 @@
+*:not(html, script, style, head) {background: none;margin: 0;padding: 0;display: flex;flex-direction: column;justify-content: center;align-items: center;text-align: center;background-size: cover;background-repeat: no-repeat;background-position: center;font-family: system-ui;/* font-weight: 100; */border: none;border: 1px solid grey;/* color: white; */font-family: "Lato", serif;/* font-weight: 100; */font-style: normal;font-family: "Lato", serif;/* border: none; */}
+
+
+body {
+    width: 100%;
+    max-width: 100%;
+    /* display: block; */
+    justify-content: FLEX-START;
+    min-height: 100vh;
+    align-items: center;
+    /* overflow: hidden; */
+    background: #FBE9E7;
+}
+
+.verse_element p {
+    font-size: 1.8rem;
+}
+
+.padding {
+    margin-top: 32px;
+}
+
+.verse_element {
+    margin: 14px 0px;
+}
+
+.menu {
+    width: 100%;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    position: fixed;
+    background-color: white;
+}
+
+.menu p {
+    font-size: 17px;
+    font-family: system-ui;
+}
+
+.prayer_section {
+    margin-top: 40px;
+}
+
+div#description {
+    background: #ff0000;
+}
+
+div#worship {
+    background: #0055d4;
+}
+
+div#oness {
+    background: #31ff31;
+}
+
+div#guidance {
+    background: yellow;
+}
+
+div#good_deeds {
+    background: burlywood;
+}
+
+div#thinking {
+    background: #00ffdc;
+}
+
+.menu_container {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menu_container.menuX {
+    justify-content: space-evenly;
+}
+
+div#Independance {
+    background-color: orange;
+}
+
+div#Examples {
+    background-color: green;
+}
+
+div#Muslim {
+    background: rebeccapurple;
+}
+
+div#disbeliever {
+    background-color: aquamarine;
+}
